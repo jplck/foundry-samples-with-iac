@@ -1,0 +1,9 @@
+name: foundry-demo
+metadata:
+  template: openai-plugin-fastapi@0.0.1-beta
+hooks:
+  postdeploy: # Pull environment variable inline from local device and set in .env file
+      shell: sh
+      run: cp .azure/$AZURE_ENV_NAME/.env ./
+infra:
+  provider: bicep
